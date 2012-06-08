@@ -1,19 +1,19 @@
 <?php
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
- 
+
 # On lit la version du plugin
 $m_version = $core->plugins->moduleInfo('codeHighlighter','version');
- 
+
 # On lit la version du plugin dans la table des versions
 $i_version = $core->getVersion('codeHighlighter');
- 
+
 # La version dans la table est supérieure ou égale à
 # celle du module, on ne fait rien puisque celui-ci
 # est installé
 if (version_compare($i_version,$m_version,'>=')) {
-	return;
+    return;
 }
- 
+
 # La procédure d'installation commence vraiment là
 $core->setVersion('codeHighlighter',$m_version);
 
@@ -30,3 +30,4 @@ if (!isset($settings->color_label))        { $settings->put('color_label',      
 if (!isset($settings->color_keyword))      { $settings->put('color_keyword',    '#000000','string'); }
 if (!isset($settings->color_comment))      { $settings->put('color_comment',    '#888888','string'); }
 if (!isset($settings->color_keyword_bold)) { $settings->put('color_keyword_bold', true, 'boolean'); }
+if (!isset($settings->color_schema))       { $settings->put('color_schema', 'default', 'string'); }
